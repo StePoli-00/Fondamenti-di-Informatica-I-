@@ -2,7 +2,7 @@
 //#include <string.h>
 //#include <stdio.h>
 //#include <stdint.h>
-//double *probabilità(const uint32_t *v, size_t n)
+//double *probabilita(const uint32_t *v, size_t n)
 //{
 //	if (v == NULL || n == 0)
 //	{

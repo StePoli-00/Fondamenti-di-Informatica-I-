@@ -8,23 +8,38 @@ double *probabilita(const uint32_t *v, size_t n)
 	{
 		return NULL;
 	}
-	double val = 0;
+	int cnt = 0;
+	for (size_t i = 0; i < n; i++)
+	{
+		if (v[i] == 0)
+		{
+			++cnt;
+		}
+	}
+	if (cnt == n)
+	{
+		return NULL;
+	}
+
 	double *vett = malloc(n * sizeof(double));
 	for (size_t i = 0; i < n; ++i)
 	{
 		vett[i] = v[i];
 
 	}
-	double *p = malloc(n * sizeof(double));
-	int i = 0;
-		for (size_t k = 0; k <= n - 1; ++k)
+	double * ris= malloc(n * sizeof(double));
+	for (size_t i = 0; i < n; i++)
+	{
+		double val = 0;
+		for (size_t k = 0; k < n; ++k)
 		{
-
 			val += vett[k];
-			p[i] = vett[i] / val;
-			++i;
 		}
+		ris[i] = vett[i] / val;
+		
+	}
+		
 	free(vett);
-	return p;
+	return ris;
 }
 
