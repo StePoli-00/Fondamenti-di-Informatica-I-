@@ -1,3 +1,5 @@
+// perdonatemi ma questa funzione è uno schifo, riasale a quando ero inesperto sul c
+
 //#include "matrix.h"
 //#include <stdint.h>
 //#include <stdlib.h>
