@@ -1,9 +1,10 @@
-#include "palindroma.h"
-
-
+#include <stdint.h>
+#include <stdbool.h>
+extern bool palindroma(const char *str);
 int main(void)
 {
-	palindroma("");
+	char s[] = { "" };
+	palindroma(s);
 
 
 }
