@@ -5,8 +5,9 @@ int main(void)
 	FILE *f = fopen("file1.variant", "rb");
 	if (f != NULL)
 	{
-		char c = 1;
-		read_variant(f, &c);
+
+		char *c = malloc(sizeof(char));
+		read_variant(f, c);
 	}
 
 
