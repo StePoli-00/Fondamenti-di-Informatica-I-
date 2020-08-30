@@ -3,7 +3,7 @@
 int main(void)
 {
 
-	char *s = "seq1";
+	char *s = "seq4";
 	struct vec_double  *n= read_vec_double(s);
 
 

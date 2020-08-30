@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-
+#include <stdio.h>
 struct vec_double {
 	uint32_t size;
 	double *data;

@@ -9,48 +9,39 @@
 bool easy_rle_decode(const char *nomefilein, const char *nomefileout)
 {
 	FILE *f = fopen(nomefilein, "rb");
-	FILE *f2 = fopen(nomefileout, "wb");
-	if (f == NULL || f2 == NULL)
+	FILE *g = fopen(nomefileout, "wb");
+	if (f == NULL)
 	{
 		fclose(f);
-		fclose(f2);
+		fclose(g);
 		return false;
 	}
-	char ca = fgetc(f);
-	int i = 1;
-	char n = 1;
-	while (ca != EOF)
+	char n = 0;
+	//int *n = malloc(sizeof(int));
+	while (fread(&n,sizeof(char),1,f))
 	{
-		ca = fgetc(f);
-		if (ispunct(ca))
+		char c = 0;
+		if (n == -1)
 		{
-			n = ca;
+			char d = 0;
+			fread(&d, sizeof(char), 1, f);
+			n = d;
 		}
-		
-		if (isalpha(ca))
-	{
-		for (int j = 0; j < i; ++j)
+		fread(&c, sizeof(char), 1, f);
+		++n;
+		int dim = n;
+		for (int j = 0; j <dim; ++j)
 		{
-	
-			fwrite(&ca, sizeof(char), n, f2);
+			fwrite(&c, sizeof(char),1,g);
 		}
-		++i;
-		
+
 	}
-	ca = fgetc(f);
-
-
-}
-
 	fclose(f);
-	fclose(f2);
+	fclose(g);
 	return true;
 }
-	/*fread(&c, sizeof(int), 1, f);
-		fread(&n, sizeof(int), 1, f);
-		fwrite(&n, sizeof(int), c, f2);
-		ca = fgetc(f);*/
 
+	
 
 
 
