@@ -11,34 +11,35 @@ int prodotto_altri_due(const int *v, size_t n)
 	}
 	int cnt = 0;
 	int prod = 0;
-	int pr = 0;
 	
 	for (size_t i = 0; i < n; i++)
 	{
 		
 		for (size_t k =0; k < n; k++)
 		{
-			if (k != i)
+			if (i == k)
 			{
-				prod = v[i] * v[k];
+				continue;
 			}
-			else
+		
+			for (size_t j =0; j < n; j++)
 			{
-				prod = v[i] * v[k];
-			}
-			for (size_t j = 0; j < n; j++)
-			{
-				if (v[j] == v[k])
+				if (i== j || k==j)
 				{
 					continue;
 				}
-				if (prod == v[j])
+				prod = v[k] * v[j];
+				if (v[i] == prod)
 				{
 					++cnt;
 				}
 			}
+			
+			
+			
+		
 		}
 	}
-		
+	cnt /= 2;
 	return cnt;
 }

@@ -8,7 +8,6 @@ void *read_variant(FILE *f, char *type)
 	{
 		return NULL;
 	}
-	type = malloc(1*sizeof(char));
 	/*if (!fread(type, sizeof(char), 1, f))
 	{
 		fclose(f);
@@ -16,21 +15,25 @@ void *read_variant(FILE *f, char *type)
 	}*/
 	int i = 0;
 	char t = 0;
-	while(fread(&t, sizeof(char), 1, f))
-	{
-		if (t == 'c')
+	fread(&t, sizeof(char), 1, f);
+	if (t == 'c')
 		{
 		
 			type = malloc(sizeof(char));
-			//type= realloc(type,sizeof(char)*i + 1);
 			fread(type, sizeof(char), 1, f);
 			++i;
+			void *a = 0;
+			type = a;
+			return type;
 		}
 		else if (t == 's')
 		{
 			type = malloc(sizeof(short));
 			fread(type, sizeof(short), 1, f);
 			++i;
+			void *a = 0;
+			type = a;
+			return type;
 
 		}
 		else if (t == 'i')
@@ -38,6 +41,9 @@ void *read_variant(FILE *f, char *type)
 			type = malloc(1 * sizeof(int));
 			fread(type, sizeof(int), 1, f);
 			++i;
+			void *a = 0;
+			type = a;
+			return type;
 
 
 		}
@@ -46,12 +52,20 @@ void *read_variant(FILE *f, char *type)
 			type = malloc(1 * sizeof(long long));
 			fread(type, sizeof(long long), 1, f);
 			++i;
+			
+			void *a = 0;
+			type = a;
+			return type;
 		}
 		else if (t == 'f')
 		{
 			type = malloc(1 * sizeof(float));
 			fread(type, sizeof(float), 1, f);
 			++i;
+			void *a = 0;
+			type = a;
+			
+			return type;
 
 		}
 		else if (t == 'd')
@@ -59,10 +73,15 @@ void *read_variant(FILE *f, char *type)
 			type = malloc(1*sizeof(double));
 			fread(type, sizeof(double), 1, f);
 			++i;
+			
+			void *a = 0;
+			type = a;
+			return type;
 		}
+		return NULL;
+	
 		
-	}
+	
 	//int *p = i;
-	void *a = 0;
-	return a;
+	
 }

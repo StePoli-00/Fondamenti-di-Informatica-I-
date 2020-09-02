@@ -2,9 +2,9 @@
 
 int main(void)
 {
-	struct rect v[] = { {{0, 2},{3,2} },{ { 3,0 }, { 0,0}} };
+	struct rect v[] = { {{0, 1},{4,-1} },{ { 3,5 }, { -3,10}} };
 
-	size_t n = 4;
+	size_t n =2;
 	find_largest(v, n);
 
 

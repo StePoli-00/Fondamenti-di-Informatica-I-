@@ -6,8 +6,11 @@ int main(void)
 	if (f != NULL)
 	{
 
-		char *c = malloc(sizeof(char));
-		read_variant(f, c);
+		char *p = malloc(sizeof(char));
+		read_variant(f,p);
+		read_variant(f, p);
+		read_variant(f, p);
+		read_variant(f, p);
 	}
 
 
