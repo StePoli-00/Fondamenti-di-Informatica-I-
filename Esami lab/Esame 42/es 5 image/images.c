@@ -30,15 +30,15 @@ struct image *read_images(const char *filename, size_t *n)
 	{
 		
 		fscanf(f, "%[^':']", imm[i].name);
-		fseek(f, +1, SEEK_CUR);
+		fgetc(f);
 		int h = 0;
 		fscanf(f, "%d",&h);
 		imm[i].height = (size_t)h;
 		int w = 0;
-		fseek(f, 1, SEEK_CUR);
+		fgetc(f);
 		fscanf(f, "%d",&w);
 		imm[i].width =(size_t )w;
-		fseek(f, 2, SEEK_CUR);
+		fgetc(f);
 		
 	}
 	*n = dim;

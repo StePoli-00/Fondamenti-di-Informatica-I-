@@ -17,9 +17,8 @@ void bad_word_filter(char *s, char **words, size_t nwords)
 		return;
 	}
 	size_t dim = 0;
-	char *new_w =(char *)malloc(1*sizeof(char));
-	char *p = NULL;
-
+	char *new_w = malloc(n * sizeof(char));
+	char *p = malloc(sizeof (char));
 	for (size_t i = 0; i < nwords; i++)
 	{
 		
@@ -31,7 +30,7 @@ void bad_word_filter(char *s, char **words, size_t nwords)
 				break;
 			}
 			dim = strlen(words[i]);
-			new_w = (char *)malloc((dim) * sizeof(char));
+		
 			for (size_t i = 0; i < dim; i++)
 			{
 				new_w[i] = '*';
@@ -39,10 +38,9 @@ void bad_word_filter(char *s, char **words, size_t nwords)
 				//s[(p - s) + i] = '*';
 			}
 			strncpy(p, new_w, dim);
-			new_w = (char*)calloc(dim, sizeof(char));
+		
 		}
 	}
-
 	free(new_w);
-
+	return;
 }

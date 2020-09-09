@@ -2,8 +2,8 @@
 
 int main(void)
 {
-	uint8_t v[] = { 0,1,2,3 };
-	struct image m = { 2,2,v };
+	uint8_t v[] = { 0,1,2,3};
+	struct image m = {2,2,v };
 	/*struct image *m=malloc(sizeof(struct image));
 	m->cols = 2;
 	m->rows = 2;

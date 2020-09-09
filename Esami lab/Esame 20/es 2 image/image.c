@@ -1,62 +1,50 @@
-//#include"image.h"
-//#include <stdlib.h>
-//struct image *image_doublesize(const struct image *img)
-//{
-//	if (img == NULL)
-//	{
-//		return NULL;
-//	}
-//	struct image *new = malloc(sizeof(struct image));
-//	new->cols = img->cols * 2;
-//	new->rows = img->rows * 2;
-//	
-//	
-//	new->data = malloc((new->cols*new->rows)*sizeof(uint8_t));
-//	size_t k = 0;
-//	size_t j = 0;
-//	size_t t = 0;
-//	for (size_t r = 0; r < new->rows; ++r)
-//	{
-//		for (size_t c = 0; c < new->cols; ++c)
-//		{
-//			if (r % 2 == 0)
-//			{
-//				size_t x = r;
-//				size_t w = c;
-//
-//				for (size_t q = 0; q < img->rows; ++q)
-//				{
-//					new->data[(w*new->rows) + x] = img->data[j*(img->rows) + k];
-//					++x;
-//				}
-//				++k;
-//			}
-//			else
-//			{
-//			
-//			size_t y = 0;
-//			size_t cnt = 1;
-//			/*size_t z = c + 2;
-//			size_t b = r + 2;*/
-//			for(size_t i=0; i<img->rows;++i)
-//			{ 
-//			new->data[(c*new->rows + r)+cnt] = new->data[t*new->rows + y];
-//			++y;
-//			++cnt;
-//
-//
-//			}
-//			++t;
-//		
-//			}
-//
-//		}
-//		if (t >= 4)
-//		{
-//			break;
-//		}
-//		
-//
-//	}
-//	return new;
-//}
+#include"image.h"
+#include <stdlib.h>
+struct image *image_doublesize(const struct image *img)
+{
+	if (img == NULL)
+	{
+		return NULL;
+	}
+	struct image *new = malloc(sizeof(struct image));
+	new->cols = img->cols * 2;
+	new->rows = img->rows * 2;
+	struct image *tmp = malloc(sizeof(struct image));
+	tmp->rows = 0;
+	tmp->cols = img->cols;
+
+
+	new->data = malloc((new->cols*new->rows) * sizeof(uint8_t));
+	size_t k = 0;
+	size_t j = 0;
+	size_t x = 0;
+	size_t cnt = 0;
+	uint8_t *v = malloc(new->cols * sizeof(uint8_t));
+	for (size_t c = 0; c < img->cols; c++)
+	{
+			
+		for (size_t r = 0; r < img->rows; r++)
+		{
+			for (size_t i = 0; i < img->cols; i++)
+			{
+				new->data[j*new->cols + k] = img->data[c*img->cols + r];
+				v[x] = new->data[j*new->cols + k];
+				++x;
+				++k;
+			}
+			
+		}
+		++j;
+		k = 0;
+		for (size_t i = 0; i <new->cols; i++)
+		{
+			new->data[j*new->cols + k] = v[i];
+			++k;
+		}
+		++j;
+		k = 0;
+		x = 0;
+	}
+	free(v);
+	return new;
+}
