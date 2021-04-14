@@ -1,0 +1,3 @@
+﻿  main.c
+  LINK : è stata specificata l'opzione /LTCG ma non è richiesta la generazione del codice; rimuovere /LTCG dalla riga di comando del collegamento per migliorare le prestazioni del linker
+  esame fra.c.vcxproj -> C:\Users\poli1\Documents\Visual Studio 2017\Projects\progetti fondamenti I\Esami lab\Esame 4\esame fra.c\Release\esame fra.c.exe

@@ -1,0 +1,12 @@
+[
+	{
+		"productId": "289347",
+		"fullName": "Pizza Margherita",
+		"price": 6
+	},
+	{
+		"productId": "67832",
+		"fullName": "Chicken Nuggets",
+		"price": 7
+	}
+]
