@@ -1,2 +1,2 @@
-# Fondamenti-di-Informatica-I-
+# Fondamenti di Informatica I
 just an infinte of exercises do it  for practicing
